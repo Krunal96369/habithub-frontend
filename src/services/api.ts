@@ -19,6 +19,19 @@ export const login = async (email: string, password: string) => {
   }
 };
 
+
+// Sign up function
+export const signup = async (email: string, password: string , firstName: string , lastName: string) => {
+  try {
+    const response = await api.post('/signup', { email, password , firstName , lastName});
+    return response.data;
+  } catch (error) {
+    console.error('Sign up error:', error);
+    throw error;
+  }
+};
+
+
 // Fetch habits for the authenticated user
 export const fetchHabits = async () => {
   try {
